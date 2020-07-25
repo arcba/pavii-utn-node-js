@@ -33,7 +33,11 @@ app.use(helmet());
 
 //routes
 app.get("/", (req, res) => {
-  res.send(`La API esta en http://localhost:${app.get("port")}`);
+  res.send("Hola mundo NODE con JS y Postgres");
+});
+
+app.get("/test", (req, res) => {
+  res.send(`test 123`);
 });
 
 app.use(articulosRoutes);
