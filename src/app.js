@@ -33,11 +33,11 @@ app.use(helmet());
 
 //routes
 app.get("/", (req, res) => {
-  res.send("Hola mundo NODE con JS y Postgres");
+  res.send("Hola mundo NODE con JS y Postgres").status(200);
 });
 
 app.get("/test", (req, res) => {
-  res.send(`test 123`);
+  res.send(`test 123`).status(200);
 });
 
 app.use(articulosRoutes);
