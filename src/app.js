@@ -10,9 +10,7 @@ const helmet = require("helmet");
 
 //inicializaciones
 const app = express();
-
-//configurar las variables de entorno ver mas en => https://www.youtube.com/watch?v=U6st9-lNUyY
-dotenv.config();
+dotenv.config(); //configurar las variables de entorno ver mas en => https://www.youtube.com/watch?v=U6st9-lNUyY
 
 //settings
 app.set("port", process.env.PORT || 8080);
@@ -26,20 +24,13 @@ app.use(
   })
 );
 app.use(express.json());
-//middleware para sanitizar
-app.use(expAutoSan.allUnsafe);
-//para asegurar la aplicacion
-app.use(helmet());
+app.use(expAutoSan.allUnsafe); //middleware para sanitizar
+app.use(helmet()); //para asegurar la aplicacion
 
 //routes
 app.get("/", (req, res) => {
-  res.send("Hola mundo NODE con JS y Postgres").status(200);
+  res.send("PAVII - FRC Hola mundo NODE con JS y Postgres").status(200);
 });
-
-app.get("/test", (req, res) => {
-  res.send(`test 123`).status(200);
-});
-
 app.use(articulosRoutes);
 app.use(articulosFamiliasRoutes);
 
